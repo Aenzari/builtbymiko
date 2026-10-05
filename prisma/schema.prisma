@@ -1,0 +1,140 @@
+// This is your Prisma schema file.
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ProjectCategory {
+  PRODUCT_DESIGN
+  WEB_PLATFORM
+  DESIGN_ENGINEERING
+  DATABASE_SYSTEMS
+  EXPERIMENT
+  OPEN_SOURCE
+}
+
+/// A single portfolio case study. Mirrors the shape of the old static
+/// `Project` TypeScript interface 1:1 so the front-end components built in
+/// earlier phases need zero changes beyond swapping their data source.
+model Project {
+  id          String          @id @default(cuid())
+  title       String
+  slug        String          @unique
+  category    ProjectCategory
+  year        Int
+  client      String?
+  role        String?
+  deployment  String?
+  summary     String
+  description String          @db.Text
+
+  /// Ordered list of metric label/value pairs, e.g. [{ "label": "Users", "value": "1.2k" }]
+  metrics     Json            @default("[]")
+  /// Ordered narrative blocks for the case-study drawer/page.
+  caseStudy   Json            @default("[]")
+  /// Public image/video URLs or paths, kept ordered for storytelling.
+  mediaAssets String[]
+  /// Ordered tech-stack badges, e.g. ["Next.js", "PostgreSQL", "Prisma"]
+  stack       String[]
+
+  demoUrl     String?
+  repoUrl     String?
+
+  isFlagship  Boolean         @default(false)
+  isFeatured  Boolean         @default(false)
+  featuredPriority Int        @default(0)
+  isArchived  Boolean         @default(false)
+  accentColor String          @default("#8A9A82")
+
+  /// Manual display order on the public roster (ascending). Lets the admin
+  /// reorder projects without depending on createdAt.
+  sortOrder   Int             @default(0)
+
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([sortOrder])
+  @@index([isArchived, isFeatured, featuredPriority])
+}
+
+/// Editable public identity. The application currently uses one profile row;
+/// the fixed key prevents accidental duplicate profiles in the admin studio.
+model Profile {
+  id                 String   @id @default("default")
+  displayName        String
+  fullName           String
+  headline           String
+  roles              String[]
+  bio                String   @db.Text
+  location           String
+  timezone           String
+  availability       String
+  availabilityState  String   @default("available")
+  email              String
+  avatarUrl          String?
+  socials            Json     @default("[]")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Experience {
+  id         String   @id @default(cuid())
+  company    String
+  role       String
+  location   String?
+  startedAt  DateTime
+  endedAt    DateTime?
+  summary    String   @db.Text
+  highlights String[]
+  stack      String[]
+  sortOrder  Int      @default(0)
+  isCurrent  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([sortOrder])
+}
+
+model Skill {
+  id         String   @id @default(cuid())
+  name       String
+  category   String
+  level      String?
+  proof      String?
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([category, sortOrder])
+}
+
+/// A single row representing the one admin account (Miko). Kept as a table
+/// rather than an env-only check so the password hash can be rotated without
+/// a redeploy, and so this can grow into multi-admin later without a schema
+/// migration on the auth path.
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+/// Contact-form submissions from the public site, so inquiries are durable
+/// even if an email-sending integration is temporarily down.
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String   @db.Text
+  scopeTags String[]
+  budget    String?
+  createdAt DateTime @default(now())
+  readAt    DateTime?
+}

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: #0b0d0c;
+  overscroll-behavior-y: none;
+  /* Belt-and-suspenders against any off-canvas element (the hero's
+     off-column 3D form, a wide bento card, a translated drawer) ever
+     introducing a horizontal scrollbar on narrow viewports. */
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(183, 243, 107, 0.28) transparent;
+}
+
+::selection {
+  background: rgba(183, 243, 107, 0.25);
+  color: #f1f5ed;
+}
+
+/* Native cursor is only ever hidden once JS confirms a fine pointer is
+   present (see CustomCursor). Touch devices never receive this class, so
+   there is no risk of a permanently-hidden cursor. */
+html.cursor-none-desktop,
+html.cursor-none-desktop a,
+html.cursor-none-desktop button {
+  cursor: none;
+}
+
+/* The custom cursor fades out entirely when the pointer leaves the viewport,
+   instead of freezing at the last known coordinate. */
+html[data-cursor-hidden="true"] #custom-cursor-root {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.cursor-none-desktop {
+    cursor: auto;
+  }
+  #custom-cursor-root {
+    display: none;
+  }
+}
+
+/* Directional hairline border for glass surfaces. On light backgrounds the
+   "floating glass" read comes mostly from the shadow (see boxShadow.glass
+   in tailwind.config.ts) rather than a bright specular edge, so this is now
+   a quiet, warm-gray hairline rather than a bright white top edge. */
+.specular-border {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(183, 243, 107, 0.7);
+  outline-offset: 3px;
+}
+
+.studio-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: rgba(164, 176, 164, 0.78);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.studio-input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  border-radius: 0.875rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.75rem 0.875rem;
+  color: #f1f5ed;
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.studio-input::placeholder {
+  color: rgba(113, 128, 118, 0.8);
+}
+
+.studio-input:focus-visible {
+  border-color: rgba(183, 243, 107, 0.6);
+  box-shadow: 0 0 0 3px rgba(183, 243, 107, 0.12);
+}
+
+.studio-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  border-radius: 1.5rem;
+  background: rgba(16, 20, 18, 0.72);
+  padding: 1.25rem;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px);
+}
+
+@media (min-width: 640px) {
+  .studio-panel {
+    padding: 2rem;
+  }
+}
