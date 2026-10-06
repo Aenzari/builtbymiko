@@ -19,7 +19,7 @@ export function LayerCard({ layer, index, className = "" }: LayerCardProps) {
       whileInView={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex flex-col rounded-[1.75rem] border border-black/[0.07] bg-surface-950/90 p-5 sm:p-6 ${className}`}
+      className={`flex flex-col rounded-[1.75rem] border border-white/[0.14] bg-surface-800/80 p-5 sm:p-6 ${className}`}
     >
       <div className="flex items-center justify-between">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent-strong">

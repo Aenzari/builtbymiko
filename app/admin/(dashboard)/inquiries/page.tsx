@@ -18,7 +18,7 @@ export default async function InquiriesPage() {
       <span className="font-mono text-[11px] uppercase tracking-widest text-[#8A8F86]">
         {inquiries.length} total · {unread} unread
       </span>
-      <h1 className="mt-2 font-sans text-2xl font-medium tracking-tight text-[#2B2B26] sm:text-3xl">
+      <h1 className="mt-2 font-sans text-2xl font-medium tracking-tight text-ink-100 sm:text-3xl">
         Inquiries
       </h1>
 

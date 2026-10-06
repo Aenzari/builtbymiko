@@ -63,7 +63,7 @@ export function ContactForm() {
   const isSuccess = status === "success";
 
   return (
-    <div className="relative overflow-hidden rounded-[1.75rem] border border-black/[0.07] bg-surface-950/90 p-6 sm:p-8">
+    <div className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-surface-800/80 p-6 sm:p-8">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -inset-x-20 -top-32 h-64 rounded-full bg-black/[0.03] blur-3xl"

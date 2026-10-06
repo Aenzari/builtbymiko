@@ -13,7 +13,7 @@ export default async function AdminDashboardPage() {
           <span className="font-mono text-[11px] uppercase tracking-widest text-[#8A8F86]">
             {projects.length} {projects.length === 1 ? "project" : "projects"}
           </span>
-          <h1 className="mt-2 font-sans text-2xl font-medium tracking-tight text-[#2B2B26] sm:text-3xl">
+          <h1 className="mt-2 font-sans text-2xl font-medium tracking-tight text-ink-100 sm:text-3xl">
             Projects
           </h1>
         </div>
@@ -41,7 +41,7 @@ export default async function AdminDashboardPage() {
             >
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="truncate font-sans text-base font-medium text-[#2B2B26]">
+                  <h2 className="truncate font-sans text-base font-medium text-ink-100">
                     {project.title}
                   </h2>
                   {project.isFlagship && (

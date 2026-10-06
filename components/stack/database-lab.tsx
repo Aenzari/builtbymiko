@@ -15,7 +15,7 @@ const TopologyCanvas = dynamic(
  */
 export function DatabaseLab() {
   return (
-    <div className="grid overflow-hidden rounded-[1.75rem] border border-black/[0.07] bg-surface-950/90 lg:grid-cols-12">
+    <div className="grid overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-surface-800/80 lg:grid-cols-12">
       <div className="flex flex-col justify-center p-6 sm:p-8 lg:col-span-5">
         <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-accent-strong">
           Database Lab

@@ -28,7 +28,7 @@ export default async function AdminDashboardLayout({
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/15 font-mono text-xs font-semibold text-accent">
               MQ
             </span>
-            <span className="hidden font-sans text-sm font-medium text-[#2B2B26] sm:inline">
+            <span className="hidden font-sans text-sm font-medium text-ink-100 sm:inline">
               Portfolio studio
             </span>
           </Link>
@@ -61,7 +61,7 @@ export default async function AdminDashboardLayout({
 
           <div className="flex items-center gap-4">
             {admin && (
-              <span className="hidden font-mono text-[11px] uppercase tracking-widest text-[#8A8F86] sm:inline">
+              <span className="hidden font-mono text-[11px] uppercase tracking-widest text-ink-500 sm:inline">
                 {admin.email}
               </span>
             )}

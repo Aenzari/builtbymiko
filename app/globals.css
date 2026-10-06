@@ -8,7 +8,7 @@
 
 html,
 body {
-  background-color: #0b0d0c;
+  background-color: #171a18;
   overscroll-behavior-y: none;
   /* Belt-and-suspenders against any off-canvas element (the hero's
      off-column 3D form, a wide bento card, a translated drawer) ever
@@ -19,12 +19,12 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(183, 243, 107, 0.28) transparent;
+  scrollbar-color: rgba(195, 244, 123, 0.42) transparent;
 }
 
 ::selection {
-  background: rgba(183, 243, 107, 0.25);
-  color: #f1f5ed;
+  background: rgba(195, 244, 123, 0.3);
+  color: #f7f8f2;
 }
 
 /* Native cursor is only ever hidden once JS confirms a fine pointer is
@@ -56,15 +56,15 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
    in tailwind.config.ts) rather than a bright specular edge, so this is now
    a quiet, warm-gray hairline rather than a bright white top edge. */
 .specular-border {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top-color: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top-color: rgba(255, 255, 255, 0.3);
 }
 
 .focus-ring {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid rgba(183, 243, 107, 0.7);
+  outline: 2px solid rgba(195, 244, 123, 0.8);
   outline-offset: 3px;
 }
 
