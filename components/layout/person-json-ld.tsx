@@ -11,7 +11,7 @@ export function PersonJsonLd() {
     name: siteConfig.author.name,
     url: siteConfig.author.url,
     jobTitle: "Creative Technologist",
-    sameAs: [siteConfig.social.github, siteConfig.social.linkedin, siteConfig.social.twitter],
+    sameAs: [siteConfig.social.github, siteConfig.social.linkedin, siteConfig.social.facebook],
   };
 
   return (

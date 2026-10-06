@@ -49,7 +49,7 @@ export function FlagshipCard({ project, onSelect }: FlagshipCardProps) {
         </div>
 
         <div className="flex flex-1 items-center">
-          <TiltPreview accentColor={project.accentColor} label="Live preview" />
+          <TiltPreview accentColor={project.accentColor} label="Live preview" demoUrl={project.links.demo} />
         </div>
       </div>
     </SpotlightSurface>

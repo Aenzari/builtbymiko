@@ -1,4 +1,4 @@
-export type SocialKind = "github" | "linkedin" | "x" | "email" | "website";
+export type SocialKind = "github" | "linkedin" | "fb" | "email" | "website";
 
 export interface SocialLink {
   kind: SocialKind;

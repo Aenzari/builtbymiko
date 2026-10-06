@@ -17,18 +17,21 @@ export const profile = {
   location: "Philippines",
   timezone: "GMT+8",
   /** Replace with your real address. */
-  email: "hello@example.com",
+  email: "michaelangeloucquinit@gmail.com",
   availability: "Open to internships and freelance work",
-  education: "IT student, majoring in Database Systems and Full-Stack Web Development",
+  education:
+    "4th year IT Student, Major in Database Systems. <b> Mindanao State University - Iligan Institute of Technology </b> ",
   socials: {
     github: siteConfig.social.github,
     linkedin: siteConfig.social.linkedin,
+    facebook: siteConfig.social.facebook,
   },
 
   about: {
-    statement: "Get the tables, keys and relationships right, and the rest of the app gets easier.",
+    statement:
+      "Get the tables, keys and relationships right, and the rest of the app gets easier.",
     paragraphs: [
-      "I'm an IT student majoring in Database Systems and Full-Stack Web Development. I like starting with the schema: what the entities are, how they relate, and what needs to stay fast as the data grows.",
+      "I'm an IT student majoring in Database Systems. I like starting with the schema: what the entities are, how they relate, and what needs to stay fast as the data grows.",
       "From there I build the server logic and the interface, with the same care for both. I want an app to be correct underneath and pleasant on top.",
     ],
     focus: [
@@ -45,9 +48,9 @@ export const profile = {
       {
         icon: "layers" as IconName,
         title: "Interfaces with feel",
-        description: "Motion, accessibility and layouts that hold up on a phone.",
+        description:
+          "Motion, accessibility and layouts that hold up on a phone.",
       },
     ],
   },
-
 } as const;

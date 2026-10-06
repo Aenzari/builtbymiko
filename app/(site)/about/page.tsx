@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="Hi, I'm Miko."
+        title="Hi, I'm Michael."
         subtitle="An IT student who likes the part of a project nobody sees first: the data model."
       />
       <AboutPanel />

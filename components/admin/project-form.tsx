@@ -123,6 +123,18 @@ export function ProjectForm({ action, initialProject, submitLabel }: ProjectForm
         />
       </div>
 
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <Field label="Client" name="client" defaultValue={initialProject?.client ?? ""} error={fieldErrors.client} />
+        <Field label="Role" name="role" defaultValue={initialProject?.role ?? ""} error={fieldErrors.role} />
+        <Field
+          label="Deployment"
+          name="deployment"
+          defaultValue={initialProject?.deployment ?? ""}
+          error={fieldErrors.deployment}
+          placeholder="Vercel · Production"
+        />
+      </div>
+
       <TextAreaField
         label="Summary"
         name="summary"

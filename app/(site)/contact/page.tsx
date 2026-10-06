@@ -6,7 +6,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Send Miko a message about a project, an internship, or a collaboration.",
+  description: "Send Michael a message about a project, an internship, or a collaboration.",
 };
 
 export default function ContactPage() {

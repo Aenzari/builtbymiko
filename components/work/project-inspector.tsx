@@ -89,7 +89,11 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                 </h2>
 
                 <div className="mt-6">
-                  <TiltPreview accentColor={project.accentColor} label="Live preview" />
+                  <TiltPreview
+                    accentColor={project.accentColor}
+                    label="Live preview"
+                    demoUrl={project.links.demo}
+                  />
                 </div>
 
                 {(project.client || project.role || project.deployment) && (

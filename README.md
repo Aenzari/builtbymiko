@@ -145,8 +145,13 @@ middleware.ts      Protects every /admin route except /admin/login
 - The public homepage (`app/page.tsx`) is a **Server Component** that reads
   via `getPublicProjects()` — no client-side fetch, no loading spinner.
 - `/admin` (behind login) gives full CRUD: create, edit, and delete projects,
-  including tech-stack tags, metrics, links, accent color, and which one is
-  the flagship.
+  including client, role, deployment, tech-stack tags, metrics, links, accent
+  color, and which one is the flagship.
+- Set a project's **Live demo URL** in the create/edit form to show that
+  project's deployed site inside the public project preview. The deployment
+  must allow framing with `Content-Security-Policy: frame-ancestors` (or
+  equivalent hosting settings); otherwise visitors can still use the **View
+  live demo** link in the project inspector.
 - `/admin/studio` manages the editable profile signal, experience log, and
   capability graph through authenticated Server Actions.
 - Every mutation calls `revalidatePath("/")`, so a change made in `/admin`

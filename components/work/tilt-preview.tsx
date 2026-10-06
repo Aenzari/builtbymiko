@@ -7,16 +7,15 @@ import { gentleSpring } from "@/lib/motion";
 interface TiltPreviewProps {
   accentColor: string;
   label: string;
+  demoUrl?: string;
 }
 
 /**
- * A stylized "live preview" panel that tilts toward the pointer, standing in
- * for an embedded product screenshot without pulling in an iframe or a
- * remote image. rotateX/rotateY are motion values driven by a spring so the
- * tilt settles with the same physical weight as everything else in the
- * system, and resets smoothly (not instantly) on pointer leave.
+ * A live demo iframe with a lightweight fallback when a project has no demo
+ * URL. The iframe is pointer-transparent so the surrounding project card
+ * remains the single click target.
  */
-export function TiltPreview({ accentColor, label }: TiltPreviewProps) {
+export function TiltPreview({ accentColor, label, demoUrl }: TiltPreviewProps) {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -49,8 +48,6 @@ export function TiltPreview({ accentColor, label }: TiltPreviewProps) {
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-2xl border border-white/[0.1] bg-surface-950"
       >
-        {/* Faux browser chrome so the tile reads as a live product, not a
-            decorative gradient block. */}
         <div className="absolute inset-x-0 top-0 flex items-center gap-1.5 border-b border-white/[0.1] bg-white/[0.03] px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-accent/60" />
           <span className="h-2 w-2 rounded-full bg-white/20" />
@@ -62,9 +59,19 @@ export function TiltPreview({ accentColor, label }: TiltPreviewProps) {
             background: `radial-gradient(circle at 30% 30%, ${accentColor}, transparent 60%)`,
           }}
         />
-        <span className="relative z-10 mt-6 font-mono text-[11px] uppercase tracking-widest text-ink-500">
-          {label}
-        </span>
+        {demoUrl ? (
+          <iframe
+            src={demoUrl}
+            title={`${label}: ${demoUrl}`}
+            loading="lazy"
+            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            className="absolute inset-x-0 bottom-0 top-8 h-[calc(100%-2rem)] w-full border-0 bg-surface-950 pointer-events-none"
+          />
+        ) : (
+          <span className="relative z-10 mt-6 font-mono text-[11px] uppercase tracking-widest text-ink-500">
+            {label}
+          </span>
+        )}
       </motion.div>
     </div>
   );
