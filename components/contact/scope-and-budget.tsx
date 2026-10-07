@@ -87,7 +87,7 @@ export function BudgetSelector({ selected, onSelect, error }: BudgetSelectorProp
         What kind of message?
       </legend>
       <div
-        className="specular-border inline-flex flex-wrap items-center gap-1 rounded-full bg-surface-900/60 p-1.5 backdrop-blur-md"
+        className="specular-border flex w-full flex-wrap items-center gap-1 rounded-2xl bg-surface-900/60 p-1.5 backdrop-blur-md sm:inline-flex sm:w-fit"
         role="radiogroup"
         aria-label="Kind of message"
       >
@@ -102,7 +102,7 @@ export function BudgetSelector({ selected, onSelect, error }: BudgetSelectorProp
               onClick={() => onSelect(option)}
               whileTap={{ scale: tapScale.button }}
               transition={snappySpring}
-              className="focus-ring relative rounded-full px-3.5 py-2 font-sans text-sm text-ink-400 transition-colors duration-200"
+              className="focus-ring relative rounded-full px-3 py-1.5 font-sans text-sm text-ink-400 transition-colors duration-200"
               style={{ color: isActive ? "#2B2B26" : undefined }}
             >
               {isActive && (

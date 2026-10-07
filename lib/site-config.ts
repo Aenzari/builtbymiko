@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Michael Angelou C. Quinit — Database & Full-Stack Developer",
+  name: "Michael Angelou C. Quinit — Full Stack & AI Web Developer",
   shortName: "Miko",
-  title: "Michael Angelou C. Quinit (Miko) — Database & Full-Stack Developer",
+  title: "Michael Angelou C. Quinit (Miko) — Full Stack & AI Web Developer",
   description:
-    "Portfolio of Michael Angelou C. Quinit (Miko), an IT student majoring in Database Systems and Full-Stack Web Development, building relational-schema-first, physics-driven web applications with Next.js, Prisma, and PostgreSQL.",
+    "Portfolio of Michael Angelou C. Quinit (Miko), a 4th Year IT student majoring in Database Systems and building full-stack and AI-powered web applications.",
   url: "https://builtbymiko-rho.vercel.app",
   ogImage: "/og-image.png",
   keywords: [

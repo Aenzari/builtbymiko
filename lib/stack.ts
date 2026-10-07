@@ -10,6 +10,25 @@ export interface StackLayer {
   tools: string[];
 }
 
+export const techStack = {
+  "Frontend Engineering": [
+    "HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Next.js",
+    "Vue.js", "Tailwind CSS", "EJS", "Vis.js",
+  ],
+  "Backend & Systems": [
+    "Node.js", "Express.js", "RESTful APIs", "Bonezegei Scripting Language", "Socket Architecture",
+  ],
+  "Database & Data Layer": [
+    "PostgreSQL", "MySQL", "Supabase", "MongoDB", "Apache Cassandra",
+    "DataStax Astra DB", "Redis", "Neo4j (Cypher)",
+  ],
+  "AI & Integrations": ["Google Gemini API", "Cursor", "Claude", "GitHub Copilot"],
+  "UI/UX & Media": ["Figma", "Canva", "CapCut"],
+  "DevOps & Platforms": [
+    "Netlify", "Vercel", "Git", "GitHub (Aenzari)", "VS Code", "GitHub Codespaces", "npm",
+  ],
+} as const;
+
 /**
  * The layers of a database-backed web app, each described the way this very
  * site uses it. Edit freely; the home tile and the /stack page both read

@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import type { Project } from "@/lib/project";
 import { profile } from "@/lib/profile";
-import { STACK_LAYERS } from "@/lib/stack";
+import { techStack } from "@/lib/stack";
 import { PagePanel } from "@/components/shell/page-panel";
 import { Avatar } from "@/components/shell/avatar";
 import { BentoTile } from "./bento-tile";
@@ -94,9 +94,9 @@ export function HomeBento({ projects }: HomeBentoProps) {
           className="min-h-[260px] md:col-span-3 lg:col-span-4"
         >
           <ol className="flex flex-col divide-y divide-white/[0.08]">
-            {STACK_LAYERS.map((layer, i) => (
-              <li key={layer.id} className="flex items-center justify-between py-2">
-                <span className="font-sans text-sm text-ink-100">{layer.tagline}</span>
+            {Object.keys(techStack).map((category, i) => (
+              <li key={category} className="flex items-center justify-between py-2">
+                <span className="font-sans text-sm text-ink-100">{category}</span>
                 <span className="font-mono text-[10px] text-ink-500">0{i + 1}</span>
               </li>
             ))}

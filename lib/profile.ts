@@ -9,8 +9,8 @@ import type { IconName } from "@/components/shell/icons";
  */
 export const profile = {
   fullName: "Michael Angelou C. Quinit",
-  displayName: "Miko Quinit",
-  role: "Database & Full-Stack Developer",
+  displayName: "Michael Quinit",
+  role: "Aspiring Full Stack Web Developer & AI Web Developer",
   initials: "MQ",
   /** Put your portrait at public/miko.jpg. Until it exists, initials are shown. */
   photo: "/miko.jpg",
@@ -20,7 +20,7 @@ export const profile = {
   email: "michaelangeloucquinit@gmail.com",
   availability: "Open to internships and freelance work",
   education:
-    "4th year IT Student, Major in Database Systems. <b> Mindanao State University - Iligan Institute of Technology </b> ",
+    "4th Year IT Student, Major in Database Systems · Mindanao State University – Iligan Institute of Technology (MSU-IIT)",
   socials: {
     github: siteConfig.social.github,
     linkedin: siteConfig.social.linkedin,
@@ -31,8 +31,8 @@ export const profile = {
     statement:
       "Get the tables, keys and relationships right, and the rest of the app gets easier.",
     paragraphs: [
-      "I'm an IT student majoring in Database Systems. I like starting with the schema: what the entities are, how they relate, and what needs to stay fast as the data grows.",
-      "From there I build the server logic and the interface, with the same care for both. I want an app to be correct underneath and pleasant on top.",
+      "I'm a 4th Year IT student at Mindanao State University – Iligan Institute of Technology, majoring in Database Systems. I build full-stack and AI-powered web applications from a strong data foundation.",
+      "I care about the connection between a reliable database, useful AI integrations, and interfaces that make complex workflows feel simple.",
     ],
     focus: [
       {
@@ -43,7 +43,7 @@ export const profile = {
       {
         icon: "network" as IconName,
         title: "Full-stack web apps",
-        description: "Next.js, Server Actions and PostgreSQL, end to end.",
+        description: "Full-stack web apps with modern frontend and backend tools.",
       },
       {
         icon: "layers" as IconName,

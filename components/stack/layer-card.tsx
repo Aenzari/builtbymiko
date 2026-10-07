@@ -37,7 +37,7 @@ export function LayerCard({ layer, index, className = "" }: LayerCardProps) {
         {layer.tools.map((tool) => (
           <li
             key={tool}
-            className="rounded-full border border-black/[0.08] bg-white/70 px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-ink-400"
+            className="rounded-full border border-zinc-300/80 bg-zinc-100 px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-zinc-900"
           >
             {tool}
           </li>

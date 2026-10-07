@@ -4,108 +4,93 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  // --- Admin account -------------------------------------------------
-  // Set ADMIN_EMAIL and ADMIN_PASSWORD in your environment before seeding.
-  // The password is hashed here and only the hash is ever stored.
   const adminEmail = process.env.ADMIN_EMAIL;
   const adminPassword = process.env.ADMIN_PASSWORD;
-
   if (!adminEmail || !adminPassword) {
-    throw new Error(
-      "Set ADMIN_EMAIL and ADMIN_PASSWORD in your environment before running the seed script."
-    );
+    throw new Error("Set ADMIN_EMAIL and ADMIN_PASSWORD in your environment before running the seed script.");
   }
-
-  const passwordHash = await bcrypt.hash(adminPassword, 12);
 
   await prisma.adminUser.upsert({
     where: { email: adminEmail.toLowerCase() },
-    update: { passwordHash },
-    create: { email: adminEmail.toLowerCase(), passwordHash },
+    update: { passwordHash: await bcrypt.hash(adminPassword, 12) },
+    create: {
+      email: adminEmail.toLowerCase(),
+      passwordHash: await bcrypt.hash(adminPassword, 12),
+    },
   });
 
-  console.log(`Admin account ready: ${adminEmail}`);
-
-  // --- Projects --------------------------------------------------------
-  // Placeholder copy below — edit summary/description/metrics/stack/links
-  // for each to match the real project details, then re-run `npm run seed`
-  // (upsert means it's safe to run repeatedly).
   const projects = [
     {
-      slug: "swiftdo",
-      title: "SwiftDo",
-      category: "WEB_PLATFORM" as const,
-      year: 2025,
-      summary: "A fast, keyboard-first task manager built to disappear into a daily workflow.",
-      description:
-        "SwiftDo is a task and productivity app focused on speed: every core action — adding a task, marking it done, rescheduling — is reachable without touching the mouse. Built as a full-stack project to practice relational data modeling (users, tasks, tags, and recurring schedules) alongside a responsive front end.",
-      metrics: [
-        { label: "Stack", value: "Full-stack" },
-        { label: "Status", value: "Active" },
-      ],
-      stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS"],
-      demoUrl: null,
-      repoUrl: null,
-      isFlagship: true,
-      accentColor: "#8A9A82",
-      sortOrder: 0,
+      slug: "baylo", title: "Baylo", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "N/A (Independent Venture)", role: "Full Stack Developer / Creator",
+      deployment: "Not Deployed (In Development)",
+      summary: "A localized, cashless skills marketplace powered by a peer-to-peer time-bank economy.",
+      description: "Baylo replaces monetary transactions with a fair time-bank mechanism where 1 hour of service equals 1 credit. Integrated AI matchmaking pairs mentors and learners based on competencies, needs, and schedules.",
+      stack: ["React", "Tailwind CSS", "Supabase", "Gemini API", "TypeScript"],
+      demoUrl: null, repoUrl: null, isFlagship: true, isFeatured: true, featuredPriority: 0, sortOrder: 0, accentColor: "#9ABF68",
     },
     {
-      slug: "the-safehouse",
-      title: "The Safehouse",
-      category: "DATABASE_SYSTEMS" as const,
-      year: 2025,
-      summary: "A community safety and reporting platform backed by a normalized relational schema.",
-      description:
-        "The Safehouse lets community members log and look up safety reports for their area. The project's core challenge was database design: modeling reports, locations, categories, and verification status in a normalized schema that stays fast to query as report volume grows, with attention to indexing on the fields used for filtering and search.",
-      metrics: [
-        { label: "Focus", value: "DB Design" },
-        { label: "Status", value: "In progress" },
-      ],
-      stack: ["Next.js", "PostgreSQL", "Prisma", "TypeScript"],
-      demoUrl: null,
-      repoUrl: null,
-      isFlagship: false,
-      accentColor: "#B08968",
-      sortOrder: 1,
+      slug: "the-safehouse", title: "The Safehouse", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "Course Major Project (Academic)", role: "Full Stack Developer / Database Architect",
+      deployment: "Local / Finished (Unpublished)",
+      summary: "A full-stack operations management system for a hybrid computer cafe and community lounge.",
+      description: "The Safehouse handles dynamic seat allocations across PC battle stations and lounge areas while concurrently processing real-time bistro orders under high traffic.",
+      stack: ["Node.js", "Express.js", "MongoDB", "Tailwind CSS", "EJS"],
+      demoUrl: null, repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 1, sortOrder: 1, accentColor: "#B08968",
     },
     {
-      slug: "glaze-and-gaze",
-      title: "Glaze & Gaze",
-      category: "PRODUCT_DESIGN" as const,
-      year: 2024,
-      summary: "An ordering and menu-browsing experience for a small dessert business.",
-      description:
-        "Glaze & Gaze is a customer-facing ordering site for a small dessert brand — a menu with categories and add-ons, a cart, and an order-summary flow. Built with an emphasis on a warm, appetite-appealing visual design paired with a straightforward, low-friction checkout path.",
-      metrics: [
-        { label: "Focus", value: "UX / UI" },
-        { label: "Type", value: "Client project" },
-      ],
-      stack: ["React", "Tailwind CSS", "Node.js"],
-      demoUrl: null,
-      repoUrl: null,
-      isFlagship: false,
-      accentColor: "#C97B63",
-      sortOrder: 2,
+      slug: "pace", title: "PACE (CareerConnect+)", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "University Research / Thesis", role: "Lead Researcher & Full Stack Engineer",
+      deployment: "In Development (Thesis R&D)",
+      summary: "A localized career guidance and institutional counseling hub.",
+      description: "PACE provides a centralized platform linking student competencies with regional labor market intelligence, streamlining institutional guidance and data-backed career paths.",
+      stack: ["Next.js", "PostgreSQL", "Supabase", "TypeScript", "Tailwind CSS"],
+      demoUrl: null, repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 2, sortOrder: 2, accentColor: "#7A8B99",
     },
     {
-      slug: "careercenter-plus",
-      title: "CareerCenter+",
-      category: "WEB_PLATFORM" as const,
-      year: 2024,
-      summary: "A campus career-services portal connecting students with job postings and application tracking.",
-      description:
-        "CareerCenter+ is a portal built to connect students with job and internship postings, with role-based access for students, employers, and career-center staff, plus application-status tracking end to end. The project focuses on multi-role authentication and a relational schema linking students, postings, employers, and applications.",
-      metrics: [
-        { label: "Roles", value: "3 user types" },
-        { label: "Focus", value: "Full-stack" },
-      ],
-      stack: ["Next.js", "PostgreSQL", "Prisma", "TypeScript", "Tailwind CSS"],
-      demoUrl: null,
-      repoUrl: null,
-      isFlagship: false,
-      accentColor: "#7A8B99",
-      sortOrder: 3,
+      slug: "kusyna", title: "Kusyna (Kusy)", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "N/A (Startup Venture)", role: "Full Stack Developer / Founder",
+      deployment: "kusyna.netlify.app",
+      summary: "A tech-powered student food hub connecting craving analytics with kitchen preparation and online orders.",
+      description: "Kusyna captures real-time student food cravings and purchase trends, enabling dynamic preparation schedules that satisfy campus demand while minimizing inventory waste.",
+      stack: ["Vue.js", "Node.js", "Express.js", "MongoDB", "Netlify"],
+      demoUrl: "https://kusyna.netlify.app", repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 3, sortOrder: 3, accentColor: "#C97B63",
+    },
+    {
+      slug: "wecats", title: "WeCats", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "Course Major Project (MSU-IIT)", role: "Full Stack Engineer & Backend Architect",
+      deployment: "wecats.netlify.app",
+      summary: "An exclusive campus forum secured via institutional email domains and Supabase auth.",
+      description: "WeCats provides a verified digital community for academic coordination with real-time message threads and discussion boards built exclusively for MSU-IIT students.",
+      stack: ["React", "Supabase", "PostgreSQL", "Tailwind CSS", "Netlify"],
+      demoUrl: "https://wecats.netlify.app", repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 4, sortOrder: 4, accentColor: "#8A9A82",
+    },
+    {
+      slug: "pawmise", title: "Pawmise", category: "WEB_PLATFORM" as const, year: 2026,
+      client: "N/A (Independent Project)", role: "Product Designer & Full Stack Developer",
+      deployment: "pawmise.netlify.app",
+      summary: "A private two-player relationship companion app built around shared routines and reflection.",
+      description: "Pawmise encourages intentional daily communication using co-op mechanics: completing shared habits, maintaining connection streaks, and unlocking shared milestones.",
+      stack: ["React", "Tailwind CSS", "TypeScript", "Supabase", "Netlify"],
+      demoUrl: "https://pawmise.netlify.app", repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 5, sortOrder: 5, accentColor: "#C58F9A",
+    },
+    {
+      slug: "epigraph", title: "EpiGraph", category: "DATABASE_SYSTEMS" as const, year: 2026,
+      client: "Course Major Project (Academic)", role: "Graph Database Architect & Backend Developer",
+      deployment: "Local / Finished (Unpublished)",
+      summary: "An epidemiological command dashboard using graph topology to track airborne transmission vectors.",
+      description: "EpiGraph models individuals, physical venues, and exposure windows as interconnected nodes and edges in Neo4j, enabling fast multi-hop contact tracing for public health teams.",
+      stack: ["Neo4j", "Cypher", "Vis.js", "Node.js", "Express.js"],
+      demoUrl: null, repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 6, sortOrder: 6, accentColor: "#91B5C7",
+    },
+    {
+      slug: "golazo", title: "Golazo | Intramural Sports Management", category: "DATABASE_SYSTEMS" as const, year: 2026,
+      client: "Course Major Project (Academic)", role: "Backend Developer & Database Engineer",
+      deployment: "Local / Finished (Unpublished)",
+      summary: "A high-throughput sports management system with live scoreboards, brackets, rosters, and QR checkout.",
+      description: "Golazo combines in-memory caching for live match scoring with QR pass verification, preventing equipment bottlenecks and providing live updates across tournament venues.",
+      stack: ["Redis", "Node.js", "Express.js", "Tailwind CSS", "HTML5"],
+      demoUrl: null, repoUrl: null, isFlagship: false, isFeatured: true, featuredPriority: 7, sortOrder: 7, accentColor: "#D2A679",
     },
   ];
 
