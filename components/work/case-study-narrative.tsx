@@ -37,7 +37,7 @@ export function CaseStudyNarrative({ project }: CaseStudyNarrativeProps) {
     tabBlocks.length > 0 ? tabBlocks : fallbackBlocks(project, activeTab);
 
   return (
-    <section className="mt-10 border-t border-white/[0.1] pt-6" aria-label={`${project.title} case study`}>
+    <section className="border-t border-zinc-800 pt-4" aria-label={`${project.title} case study`}>
       <div
         role="tablist"
         aria-label="Case study sections"
@@ -56,7 +56,7 @@ export function CaseStudyNarrative({ project }: CaseStudyNarrativeProps) {
               whileTap={{ scale: tapScale.button }}
               transition={snappySpring}
               className={`relative flex min-h-10 flex-1 items-center justify-center gap-2 rounded-xl px-3 font-mono text-[10px] uppercase tracking-widest outline-none focus-visible:ring-2 focus-visible:ring-accent/70 sm:flex-none sm:px-4 ${
-                isActive ? "text-surface-950" : "text-ink-500 hover:text-ink-100"
+                isActive ? "text-surface-950" : "text-zinc-400 hover:text-zinc-100"
               }`}
             >
               {isActive && (
