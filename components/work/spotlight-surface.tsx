@@ -68,7 +68,7 @@ export function SpotlightSurface({
       whileHover={prefersReducedMotion ? undefined : { y: -4 }}
       whileTap={{ scale: tapScale.card }}
       transition={snappySpring}
-      className={`focus-ring group relative isolate flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/[0.1] border-t-white/25 bg-surface-900/70 shadow-glass backdrop-blur-xl hover:border-accent/40 ${className}`}
+      className={`focus-ring group relative isolate flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-black/[0.1] border-t-white/90 bg-surface-900/70 shadow-glass backdrop-blur-xl hover:border-accent/60 hover:bg-white ${className}`}
       style={
         {
           "--spotlight-color": accentColor,
@@ -78,7 +78,7 @@ export function SpotlightSurface({
       }
     >
       {/* Directional specular top edge, independent of the hover border. */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/70" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white" />
 
       {/* Mouse-following ambient spotlight, driven purely by the CSS vars
           written imperatively in handleMouseMove above. */}

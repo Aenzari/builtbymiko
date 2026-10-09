@@ -18,6 +18,14 @@ export const techStack = {
   Motion: ["Framer Motion", "Three.js", "React Three Fiber", "Lenis", "WebGL", "Gemini API", "GitHub Copilot"],
 } as const;
 
+export const STACK_DESCRIPTIONS: Record<keyof typeof techStack, string> = {
+  Data: "Models the relationships, queries, and persistence that every product depends on.",
+  Server: "Connects the interface to validated actions, APIs, and reliable application logic.",
+  Interface: "Shapes accessible, responsive screens with reusable components and clear visual hierarchy.",
+  Security: "Protects identity, sessions, and writes with validation and server-side authorization.",
+  Motion: "Adds purposeful feedback through spring interaction, 3D scenes, and smooth transitions.",
+};
+
 /**
  * The layers of a database-backed web app, each described the way this very
  * site uses it. Edit freely; the home tile and the /stack page both read

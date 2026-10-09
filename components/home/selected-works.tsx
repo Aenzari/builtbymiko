@@ -12,7 +12,7 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
 
   return (
     <section className="py-20 sm:py-28" aria-labelledby="selected-works-title">
-      <div className="mb-8 flex items-end justify-between border-b border-white/10 pb-4">
+      <div className="mb-8 flex items-end justify-between border-b border-black/10 pb-4">
         <div>
           <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">Archive / 01</p>
           <h2 id="selected-works-title" className="mt-3 font-sans text-4xl font-medium tracking-[-0.06em] text-ink-100 sm:text-6xl">Selected work</h2>
@@ -21,7 +21,7 @@ export function SelectedWorks({ projects }: { projects: Project[] }) {
       </div>
 
       {projects.length === 0 ? (
-        <p className="border-b border-white/10 py-10 font-mono text-xs uppercase tracking-widest text-ink-500">Archive temporarily offline.</p>
+        <p className="border-b border-black/10 py-10 font-mono text-xs uppercase tracking-widest text-ink-500">Archive temporarily offline.</p>
       ) : (
         <div className="divide-y divide-white/10">
           {projects.map((project, index) => (

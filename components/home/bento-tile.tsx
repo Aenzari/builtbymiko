@@ -48,7 +48,7 @@ export function BentoTile({ href, icon, title, description, className = "", chil
       whileTap={{ scale: tapScale.card }}
       transition={snappySpring}
       style={{ "--spot-x": "50%", "--spot-y": "50%" } as CSSProperties}
-      className={`group relative isolate flex flex-col overflow-hidden rounded-[1.75rem] border border-white/[0.1] border-t-white/20 bg-surface-850/80 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.08)_inset] hover:border-accent/40 hover:shadow-glass ${className}`}
+      className={`group relative isolate flex flex-col overflow-hidden rounded-[1.75rem] border border-black/[0.1] border-t-white/90 bg-surface-850/80 p-5 shadow-sm transition-colors hover:border-accent/50 hover:bg-white hover:shadow-glass ${className}`}
     >
       <div
         aria-hidden="true"

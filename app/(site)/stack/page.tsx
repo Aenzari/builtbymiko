@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/shell/page-header";
 import { PagePanel } from "@/components/shell/page-panel";
 import { DatabaseLab } from "@/components/stack/database-lab";
 import { LayerCard } from "@/components/stack/layer-card";
-import { STACK_LAYERS, techStack } from "@/lib/stack";
+import { STACK_LAYERS, STACK_DESCRIPTIONS, techStack } from "@/lib/stack";
 
 export const metadata: Metadata = { title: "Stack" };
 
@@ -34,6 +34,9 @@ export default function StackPage() {
             {Object.entries(techStack).map(([category, tools]) => (
               <section key={category} className="rounded-[1.75rem] border border-black/[0.1] bg-surface-850/80 p-5 sm:p-6">
                 <h2 className="font-sans text-lg font-semibold text-ink-100">{category}</h2>
+                <p className="mt-2 max-w-[42ch] text-sm leading-relaxed text-ink-400">
+                  {STACK_DESCRIPTIONS[category as keyof typeof STACK_DESCRIPTIONS]}
+                </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {tools.map((tool) => (
                     <span key={tool} className="rounded-full border border-black/[0.1] bg-white/60 px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-ink-300">

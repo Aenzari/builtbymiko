@@ -46,7 +46,7 @@ export function TiltPreview({ accentColor, label, demoUrl }: TiltPreviewProps) {
         ref={ref}
         onMouseMove={handleMouseMove}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-slate-800/80 bg-surface-950"
+        className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-black/[0.1] bg-surface-950"
       >
         <div className="absolute inset-x-0 top-0 flex items-center gap-1.5 border-b border-white/[0.1] bg-white/[0.03] px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-accent/60" />
