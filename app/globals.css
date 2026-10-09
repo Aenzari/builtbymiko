@@ -8,7 +8,7 @@
 
 html,
 body {
-  background-color: #171a18;
+  background-color: #090a0f;
   overscroll-behavior-y: none;
   /* Belt-and-suspenders against any off-canvas element (the hero's
      off-column 3D form, a wide bento card, a translated drawer) ever
@@ -19,12 +19,12 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(195, 244, 123, 0.42) transparent;
+  scrollbar-color: rgba(16, 185, 129, 0.48) transparent;
 }
 
 ::selection {
-  background: rgba(195, 244, 123, 0.3);
-  color: #f7f8f2;
+  background: rgba(16, 185, 129, 0.3);
+  color: #f8fafc;
 }
 
 /* Native cursor is only ever hidden once JS confirms a fine pointer is
@@ -64,14 +64,14 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid rgba(195, 244, 123, 0.8);
+  outline: 2px solid rgba(16, 185, 129, 0.8);
   outline-offset: 3px;
 }
 
 .studio-label {
   display: block;
   margin-bottom: 0.375rem;
-  color: rgba(164, 176, 164, 0.78);
+  color: rgba(167, 175, 191, 0.9);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 10px;
   text-transform: uppercase;
@@ -85,26 +85,26 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
   border-radius: 0.875rem;
   background: rgba(255, 255, 255, 0.04);
   padding: 0.75rem 0.875rem;
-  color: #f1f5ed;
+  color: #f8fafc;
   font-family: var(--font-display), sans-serif;
   font-size: 0.875rem;
   outline: none;
 }
 
 .studio-input::placeholder {
-  color: rgba(113, 128, 118, 0.8);
+  color: rgba(125, 135, 153, 0.9);
 }
 
 .studio-input:focus-visible {
-  border-color: rgba(183, 243, 107, 0.6);
-  box-shadow: 0 0 0 3px rgba(183, 243, 107, 0.12);
+  border-color: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
 }
 
 .studio-panel {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top-color: rgba(255, 255, 255, 0.22);
   border-radius: 1.5rem;
-  background: rgba(16, 20, 18, 0.72);
+  background: rgba(17, 22, 34, 0.78);
   padding: 1.25rem;
   box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(18px);

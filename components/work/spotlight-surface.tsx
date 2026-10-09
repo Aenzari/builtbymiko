@@ -68,7 +68,7 @@ export function SpotlightSurface({
       whileHover={prefersReducedMotion ? undefined : { y: -4 }}
       whileTap={{ scale: tapScale.card }}
       transition={snappySpring}
-      className={`focus-ring group relative isolate flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/[0.1] border-t-white/25 bg-surface-900/60 backdrop-blur-xl hover:border-accent/40 ${className}`}
+      className={`focus-ring group relative isolate flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/[0.1] border-t-white/25 bg-surface-900/70 shadow-glass backdrop-blur-xl hover:border-accent/40 ${className}`}
       style={
         {
           "--spotlight-color": accentColor,

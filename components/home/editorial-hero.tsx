@@ -34,7 +34,7 @@ export function EditorialHero() {
             transition={snappySpring}
             className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent"
           >
-            Independent developer / IT database systems
+            [ 4TH YEAR IT · DATABASE SYSTEMS · AI WEB DEVELOPER ]
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
@@ -73,7 +73,10 @@ export function EditorialHero() {
           transition={{ ...snappySpring, delay: 0.2 }}
           className="self-end border-l border-white/15 pl-5"
         >
-          <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500">Live metadata</p>
+          <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ink-400">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
+            Available for contracts & collabs
+          </p>
           <dl className="mt-6 space-y-5">
             <Meta label="Local time" value={`${time} / ${profile.timezone}`} />
             <Meta label="Location" value={profile.location} />

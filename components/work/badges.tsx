@@ -1,7 +1,7 @@
 export function StackBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-zinc-800 bg-zinc-950/40 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-300">
-      {children}
+    <span className="border border-white/[0.12] bg-surface-950/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-200">
+      [{children}]
     </span>
   );
 }

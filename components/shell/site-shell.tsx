@@ -17,7 +17,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <BackgroundCurves />
         <main
           id="top"
-          className="relative z-10 mx-auto w-full max-w-[1180px] px-4 pb-16 pt-24 sm:px-8 lg:px-10 lg:pt-14"
+          className="relative z-10 mx-auto w-full max-w-[1240px] px-5 pb-20 pt-24 sm:px-8 lg:px-12 lg:pt-16"
         >
           {children}
         </main>

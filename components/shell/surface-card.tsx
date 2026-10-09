@@ -9,7 +9,7 @@ interface SurfaceCardProps {
 export function SurfaceCard({ children, className = "" }: SurfaceCardProps) {
   return (
     <div
-      className={`rounded-[1.75rem] border border-white/[0.14] bg-surface-800/80 p-5 shadow-[0_1px_0_0_rgba(255,255,255,0.12)_inset] sm:p-7 ${className}`}
+      className={`rounded-2xl border border-white/[0.1] border-t-white/[0.18] bg-surface-900/80 p-6 shadow-glass backdrop-blur-md sm:p-8 ${className}`}
     >
       {children}
     </div>

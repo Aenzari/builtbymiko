@@ -56,7 +56,7 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
 
   return (
     <>
-      <div className="hidden gap-4 sm:grid sm:auto-rows-[280px] sm:grid-cols-12 lg:auto-rows-[300px]">
+      <div className="hidden gap-6 sm:grid sm:auto-rows-[300px] sm:grid-cols-12 lg:auto-rows-[320px] lg:gap-8">
         <div
           className={`sm:col-span-12 sm:row-span-2 ${
             secondary.length === 0 ? "lg:col-span-12" : "lg:col-span-8"

@@ -12,8 +12,8 @@ import { SocialButtons } from "./social-buttons";
  */
 export function Sidebar() {
   return (
-    <aside className="sticky top-0 hidden h-screen w-[296px] shrink-0 p-3 lg:block">
-      <div className="specular-border relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-surface-900/80 px-6 py-8 shadow-glass backdrop-blur-xl">
+    <aside className="sticky top-0 hidden h-screen w-[296px] shrink-0 p-4 lg:block">
+      <div className="specular-border relative flex h-full flex-col overflow-hidden rounded-3xl bg-surface-900/80 px-7 py-9 shadow-glass backdrop-blur-xl">
         <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-accent/10 blur-3xl" />
         <div className="flex flex-col items-center text-center">
           <Avatar size={112} />

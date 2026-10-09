@@ -17,7 +17,7 @@ export function FlagshipCard({ project, onSelect }: FlagshipCardProps) {
       onClick={onSelect}
       accentColor={project.accentColor}
       ariaLabel={`Open case study: ${project.title}`}
-      className="p-6 sm:p-8"
+      className="p-6 sm:p-8 lg:p-10"
     >
       <div className="flex flex-col gap-6 lg:h-full lg:flex-row lg:items-stretch lg:gap-10">
         <div className="flex flex-col lg:w-[42%]">

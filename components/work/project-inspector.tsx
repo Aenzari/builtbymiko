@@ -59,7 +59,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
               aria-modal="true"
               aria-labelledby={`inspector-title-${project.id}`}
               transition={prefersReducedMotion ? { duration: 0.2 } : layoutSpring}
-              className="specular-border relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl bg-surface-900/95 p-4 shadow-glass-lg backdrop-blur-2xl sm:p-6"
+              className="specular-border relative flex max-h-[85vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-surface-900/95 p-4 shadow-glass-lg backdrop-blur-2xl sm:p-6"
             >
               <motion.button
                 type="button"
@@ -73,7 +73,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
               </motion.button>
 
               <motion.div
-                className="flex min-h-0 flex-1 flex-col"
+                className="min-h-0 flex-1 overflow-y-auto pr-1"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.35 }}
@@ -91,9 +91,9 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                   {project.title}
                 </h2>
 
-                <div className="mt-5 grid min-h-0 flex-1 gap-5 overflow-y-auto pr-1 lg:grid-cols-[1.05fr_0.95fr] lg:overflow-hidden">
+                <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
                   <HeroMedia project={project} />
-                  <div className="min-w-0 lg:overflow-y-auto lg:pr-2">
+                  <div className="min-w-0 lg:pr-2">
                     {(project.client || project.role || project.deployment) && (
                       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
                         {project.client && <InspectorMeta label="Client" value={project.client} />}
@@ -107,9 +107,12 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                         )}
                       </div>
                     )}
-                    <p className="mt-5 max-w-[64ch] font-sans text-sm leading-relaxed text-zinc-300 sm:text-base">
-                      {project.description}
-                    </p>
+                    <div className="mt-6">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">The brief</p>
+                      <p className="mt-2 max-w-[64ch] font-sans text-sm leading-relaxed text-zinc-300 sm:text-base">
+                        {project.description}
+                      </p>
+                    </div>
                     <div className="mt-5 grid grid-cols-2 gap-4 border-t border-zinc-800 pt-4 sm:grid-cols-3">
                       {project.metrics.map((metric) => (
                         <MetricStat key={metric.label} label={metric.label} value={metric.value} />
@@ -126,7 +129,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                     </div>
                   </div>
                 </div>
-                <div className="mt-5 min-h-0 shrink-0 overflow-y-auto border-t border-zinc-800 pt-4 lg:max-h-[32vh]">
+                <div className="mt-6 shrink-0 border-t border-zinc-800 pt-5">
                   <CaseStudyNarrative project={project} />
                 </div>
               </motion.div>

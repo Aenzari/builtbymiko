@@ -16,7 +16,7 @@ export function SecondaryCard({ project, onSelect }: SecondaryCardProps) {
       onClick={onSelect}
       accentColor={project.accentColor}
       ariaLabel={`Open case study: ${project.title}`}
-      className="justify-between p-6"
+      className="justify-between p-6 sm:p-7"
     >
       <div>
         <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-ink-500">
