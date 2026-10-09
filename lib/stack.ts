@@ -11,22 +11,11 @@ export interface StackLayer {
 }
 
 export const techStack = {
-  "Frontend Engineering": [
-    "HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Next.js",
-    "Vue.js", "Tailwind CSS", "EJS", "Vis.js",
-  ],
-  "Backend & Systems": [
-    "Node.js", "Express.js", "RESTful APIs", "Bonezegei Scripting Language", "Socket Architecture",
-  ],
-  "Database & Data Layer": [
-    "PostgreSQL", "MySQL", "Supabase", "MongoDB", "Apache Cassandra",
-    "DataStax Astra DB", "Redis", "Neo4j (Cypher)",
-  ],
-  "AI & Integrations": ["Google Gemini API", "Cursor", "Claude", "GitHub Copilot"],
-  "UI/UX & Media": ["Figma", "Canva", "CapCut"],
-  "DevOps & Platforms": [
-    "Netlify", "Vercel", "Git", "GitHub (Aenzari)", "VS Code", "GitHub Codespaces", "npm",
-  ],
+  Data: ["PostgreSQL", "MySQL", "Supabase", "MongoDB", "Prisma", "Redis", "Neo4j (Cypher)", "SQL"],
+  Server: ["Node.js", "Next.js", "Express.js", "RESTful APIs", "Zod", "TypeScript", "Socket Architecture"],
+  Interface: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS", "Figma"],
+  Security: ["bcrypt", "JWT (jose)", "Middleware", "Input validation", "Signed sessions"],
+  Motion: ["Framer Motion", "Three.js", "React Three Fiber", "Lenis", "WebGL", "Gemini API", "GitHub Copilot"],
 } as const;
 
 /**

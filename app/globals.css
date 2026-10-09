@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,
 body {
-  background-color: #090a0f;
+  background-color: #f7f2eb;
   overscroll-behavior-y: none;
   /* Belt-and-suspenders against any off-canvas element (the hero's
      off-column 3D form, a wide bento card, a translated drawer) ever
@@ -19,12 +19,12 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(16, 185, 129, 0.48) transparent;
+  scrollbar-color: rgba(214, 106, 74, 0.48) transparent;
 }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
-  color: #f8fafc;
+  background: rgba(214, 106, 74, 0.22);
+  color: #201b18;
 }
 
 /* Native cursor is only ever hidden once JS confirms a fine pointer is
@@ -64,7 +64,7 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid rgba(16, 185, 129, 0.8);
+  outline: 2px solid rgba(214, 106, 74, 0.8);
   outline-offset: 3px;
 }
 
@@ -96,15 +96,15 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
 }
 
 .studio-input:focus-visible {
-  border-color: rgba(16, 185, 129, 0.7);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.14);
+  border-color: rgba(214, 106, 74, 0.7);
+  box-shadow: 0 0 0 3px rgba(214, 106, 74, 0.14);
 }
 
 .studio-panel {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top-color: rgba(255, 255, 255, 0.22);
   border-radius: 1.5rem;
-  background: rgba(17, 22, 34, 0.78);
+  background: rgba(255, 250, 245, 0.82);
   padding: 1.25rem;
   box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(18px);

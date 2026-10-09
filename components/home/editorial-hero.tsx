@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/lib/profile";
 import { snappySpring, tapScale } from "@/lib/motion";
+import { RobotMascot } from "./robot-mascot";
 
 function formatTime() {
   return new Intl.DateTimeFormat("en-PH", {
@@ -71,8 +72,9 @@ export function EditorialHero() {
           initial={{ opacity: 0, x: 12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ ...snappySpring, delay: 0.2 }}
-          className="self-end border-l border-white/15 pl-5"
+          className="self-end border-l border-black/10 pl-5"
         >
+          <RobotMascot />
           <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ink-400">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
             Available for contracts & collabs
@@ -85,7 +87,7 @@ export function EditorialHero() {
           </dl>
         </motion.aside>
       </div>
-      <div className="mt-16 flex items-center justify-between border-t border-white/10 pt-4 font-mono text-[10px] uppercase tracking-widest text-ink-500">
+      <div className="mt-16 flex items-center justify-between border-t border-black/10 pt-4 font-mono text-[10px] uppercase tracking-widest text-ink-500">
         <span>Scroll to inspect the work</span>
         <span>© {new Date().getFullYear()} / MQ</span>
       </div>

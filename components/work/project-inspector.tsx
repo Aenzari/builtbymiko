@@ -49,7 +49,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              className="absolute inset-0 bg-[#201b18]/30 backdrop-blur-sm"
               aria-hidden="true"
             />
             <motion.div
@@ -67,7 +67,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                 aria-label="Close project details"
                 whileTap={{ scale: tapScale.button }}
                 transition={snappySpring}
-                className="focus-ring specular-border absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-surface-850 text-zinc-100 transition-colors hover:border-zinc-600 hover:bg-zinc-800 sm:right-5 sm:top-5"
+                className="focus-ring specular-border absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-800 text-ink-100 transition-colors hover:border-accent/50 hover:bg-surface-700 sm:right-5 sm:top-5"
               >
                 <CloseIcon />
               </motion.button>
@@ -78,7 +78,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.35 }}
               >
-                <div className="flex items-center gap-2 pr-14 font-mono text-[11px] uppercase tracking-widest text-zinc-400">
+                <div className="flex items-center gap-2 pr-14 font-mono text-[11px] uppercase tracking-widest text-ink-400">
                   <span>{project.category}</span>
                   <span aria-hidden="true">·</span>
                   <span>{project.year}</span>
@@ -86,7 +86,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
 
                 <h2
                   id={`inspector-title-${project.id}`}
-                  className="mt-3 pr-10 font-sans text-3xl font-medium leading-tight tracking-tight text-zinc-100 sm:text-4xl"
+                  className="mt-3 pr-10 font-sans text-3xl font-medium leading-tight tracking-tight text-ink-100 sm:text-4xl"
                 >
                   {project.title}
                 </h2>
@@ -108,12 +108,12 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                       </div>
                     )}
                     <div className="mt-6">
-                      <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">The brief</p>
-                      <p className="mt-2 max-w-[64ch] font-sans text-sm leading-relaxed text-zinc-300 sm:text-base">
+                      <p className="font-mono text-[10px] uppercase tracking-widest text-ink-400">The brief</p>
+                      <p className="mt-2 max-w-[64ch] font-sans text-sm leading-relaxed text-ink-300 sm:text-base">
                         {project.description}
                       </p>
                     </div>
-                    <div className="mt-5 grid grid-cols-2 gap-4 border-t border-zinc-800 pt-4 sm:grid-cols-3">
+                    <div className="mt-5 grid grid-cols-2 gap-4 border-t border-black/[0.1] pt-4 sm:grid-cols-3">
                       {project.metrics.map((metric) => (
                         <MetricStat key={metric.label} label={metric.label} value={metric.value} />
                       ))}
@@ -129,7 +129,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 shrink-0 border-t border-zinc-800 pt-5">
+                <div className="mt-6 shrink-0 border-t border-black/[0.1] pt-5">
                   <CaseStudyNarrative project={project} />
                 </div>
               </motion.div>
@@ -144,11 +144,11 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
 function HeroMedia({ project }: { project: Project }) {
   const asset = project.mediaAssets[0];
   return (
-    <div className="relative aspect-video w-full self-start overflow-hidden rounded-xl border border-zinc-800 bg-surface-950">
+    <div className="relative aspect-video w-full self-start overflow-hidden rounded-xl border border-black/[0.1] bg-surface-950">
       {asset ? (
         <Image src={asset} alt={`${project.title} preview`} fill unoptimized className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
       ) : (
-        <div className="flex h-full items-center justify-center font-mono text-xs uppercase tracking-wider text-zinc-400">
+        <div className="flex h-full items-center justify-center font-mono text-xs uppercase tracking-wider text-ink-400">
           Project preview
         </div>
       )}
@@ -158,10 +158,10 @@ function HeroMedia({ project }: { project: Project }) {
 
 function InspectorMeta({ label, value, href }: { label: string; value: string; href?: string }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-950/30 p-3">
-      <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">{label}</p>
+    <div className="rounded-lg border border-black/[0.1] bg-white/50 p-3">
+      <p className="font-mono text-xs uppercase tracking-wider text-ink-400">{label}</p>
       <div className="mt-1 flex items-center justify-between gap-2">
-        <p className="font-sans text-sm text-zinc-100">{value}</p>
+        <p className="font-sans text-sm text-ink-100">{value}</p>
         {href && <LinkButton href={href} label={`Open ${label}`}><ExternalLinkIcon /></LinkButton>}
       </div>
     </div>
@@ -171,7 +171,7 @@ function InspectorMeta({ label, value, href }: { label: string; value: string; h
 function LinkButton({ href, label, children }: { href: string; label: string; children: React.ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label} data-cursor="link"
-      className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-800 text-zinc-300 transition-colors hover:border-zinc-600 hover:bg-zinc-800 hover:text-white">
+      className="focus-ring inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.1] text-ink-300 transition-colors hover:border-accent/50 hover:bg-surface-800 hover:text-ink-100">
       {children}
     </a>
   );

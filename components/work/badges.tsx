@@ -1,6 +1,6 @@
 export function StackBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="border border-white/[0.12] bg-surface-950/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-zinc-200">
+    <span className="border border-black/[0.1] bg-surface-950/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
       [{children}]
     </span>
   );
