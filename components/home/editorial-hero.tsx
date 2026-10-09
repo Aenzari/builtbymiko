@@ -11,9 +11,10 @@ function formatTime() {
   return new Intl.DateTimeFormat("en-PH", {
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
     hour12: false,
     timeZone: "Asia/Manila",
-  }).format(new Date());
+  }).format(new Date()).replace(/\s/g, "");
 }
 
 export function EditorialHero() {
@@ -21,12 +22,13 @@ export function EditorialHero() {
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const interval = window.setInterval(() => setTime(formatTime()), 30_000);
+    const interval = window.setInterval(() => setTime(formatTime()), 1_000);
     return () => window.clearInterval(interval);
   }, []);
 
   return (
     <section className="relative py-10 sm:py-20 lg:py-28">
+      <div className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-accent/10 blur-[120px]" />
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-20">
         <div>
           <motion.p
@@ -41,7 +43,7 @@ export function EditorialHero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ ...snappySpring, delay: 0.08 }}
-            className="mt-7 max-w-[10ch] font-sans text-[clamp(4.5rem,12vw,10.5rem)] font-medium leading-[0.82] tracking-[-0.085em] text-ink-100"
+            className="mt-7 max-w-[10ch] font-sans text-[clamp(4.5rem,12vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em] text-zinc-50"
           >
             Data is the
             <span className="block text-accent">design.</span>
@@ -52,7 +54,7 @@ export function EditorialHero() {
             transition={{ ...snappySpring, delay: 0.16 }}
             className="mt-9 flex max-w-[52ch] flex-col gap-6 sm:flex-row sm:items-end"
           >
-            <p className="font-sans text-base leading-relaxed text-ink-400 sm:text-lg">
+            <p className="font-sans text-base leading-relaxed text-zinc-300 sm:text-lg">
               I build database-first web applications where the architecture is
               clear, the interface is calm, and every interaction earns its place.
             </p>
@@ -76,16 +78,28 @@ export function EditorialHero() {
         >
           <RobotMascot />
           <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-ink-400">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden="true" />
-            Available for contracts & collabs
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" aria-hidden="true" />
+            BUILDING QUIETLY · GMT+8
           </p>
           <dl className="mt-6 space-y-5">
-            <Meta label="Local time" value={`${time} / ${profile.timezone}`} />
+            <Meta label="Local time" value={`${time} PST`} />
             <Meta label="Location" value={profile.location} />
-            <Meta label="Status" value="Building quietly" accent />
+            <Meta label="Status" value="PostgreSQL Connected" accent />
             <Meta label="Availability" value={profile.availability} />
           </dl>
         </motion.aside>
+      </div>
+      <div className="mt-8 flex flex-wrap items-center gap-3 rounded-2xl border border-white/[0.08] border-t-white/15 bg-white/[0.03] px-4 py-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">LIVE TELEMETRY</span>
+        <span className="h-1 w-1 rounded-full bg-emerald-400 shadow-[0_0_12px_#10B981]" />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">Prisma ORM Active</span>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new CustomEvent("simulate-query"))}
+          className="ml-auto rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-accent transition-colors hover:border-accent hover:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+        >
+          Simulate Query Flow ↗
+        </button>
       </div>
       <div className="mt-16 flex items-center justify-between border-t border-black/10 pt-4 font-mono text-[10px] uppercase tracking-widest text-ink-500">
         <span>Scroll to inspect the work</span>

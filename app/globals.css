@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html,
 body {
-  background-color: #f7f2eb;
+  background: radial-gradient(circle at 70% -10%, #12151e 0%, #08090c 48%);
   overscroll-behavior-y: none;
   /* Belt-and-suspenders against any off-canvas element (the hero's
      off-column 3D form, a wide bento card, a translated drawer) ever
@@ -23,8 +23,8 @@ body {
 }
 
 ::selection {
-  background: rgba(214, 106, 74, 0.22);
-  color: #201b18;
+  background: rgba(224, 109, 83, 0.35);
+  color: #f4f1eb;
 }
 
 /* Native cursor is only ever hidden once JS confirms a fine pointer is
@@ -56,8 +56,9 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
    in tailwind.config.ts) rather than a bright specular edge, so this is now
    a quiet, warm-gray hairline rather than a bright white top edge. */
 .specular-border {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-top-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1);
 }
 
 .focus-ring {
@@ -104,7 +105,7 @@ html[data-cursor-hidden="true"] #custom-cursor-root {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-top-color: rgba(255, 255, 255, 0.22);
   border-radius: 1.5rem;
-  background: rgba(255, 250, 245, 0.82);
+  background: rgba(15, 19, 29, 0.82);
   padding: 1.25rem;
   box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(18px);

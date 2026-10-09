@@ -25,9 +25,9 @@ export function ProjectsView({ projects }: ProjectsViewProps) {
 
   return (
     <>
-      <div className="hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        {projects.map((project) => (
-          <div key={project.id} className="min-h-[360px]">
+      <div className="hidden gap-5 sm:grid sm:grid-cols-12 lg:gap-6">
+        {projects.map((project, index) => (
+          <div key={project.id} className={`min-h-[360px] sm:col-span-6 ${index % 3 === 0 ? "lg:col-span-7" : "lg:col-span-5"}`}>
             <SecondaryCard project={project} onSelect={() => setSelected(project)} />
           </div>
         ))}

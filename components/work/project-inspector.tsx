@@ -49,7 +49,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 bg-[#201b18]/30 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
               aria-hidden="true"
             />
             <motion.div
@@ -59,7 +59,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
               aria-modal="true"
               aria-labelledby={`inspector-title-${project.id}`}
               transition={prefersReducedMotion ? { duration: 0.2 } : layoutSpring}
-              className="specular-border relative flex max-h-[85vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-surface-900/95 p-4 shadow-glass-lg backdrop-blur-2xl sm:p-6"
+              className="specular-border relative flex max-h-[88vh] w-full max-w-6xl flex-col overflow-hidden rounded-3xl bg-surface-900/95 p-4 shadow-glass-lg backdrop-blur-2xl sm:p-6"
             >
               <motion.button
                 type="button"
@@ -67,7 +67,7 @@ export function ProjectInspector({ project, onClose }: ProjectInspectorProps) {
                 aria-label="Close project details"
                 whileTap={{ scale: tapScale.button }}
                 transition={snappySpring}
-                className="focus-ring specular-border absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-surface-800 text-ink-100 transition-colors hover:border-accent/50 hover:bg-surface-700 sm:right-5 sm:top-5"
+                className="focus-ring specular-border sticky right-0 top-0 z-10 ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-surface-800 text-ink-100 transition-colors hover:border-accent/50 hover:bg-surface-700 sm:absolute sm:right-5 sm:top-5"
               >
                 <CloseIcon />
               </motion.button>

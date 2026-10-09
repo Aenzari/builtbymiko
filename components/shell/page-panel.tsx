@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { snappySpring } from "@/lib/motion";
 
 interface PagePanelProps {
   children: ReactNode;
@@ -19,7 +20,7 @@ export function PagePanel({ children, className = "" }: PagePanelProps) {
     <motion.div
       initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
       animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ ...snappySpring, delay: 0.15 }}
       className={`specular-border rounded-3xl bg-surface-900/70 p-4 shadow-glass backdrop-blur-xl sm:p-6 ${className}`}
     >
       {children}

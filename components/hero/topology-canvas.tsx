@@ -101,6 +101,19 @@ function TopologyGraph({
   );
 
   const nodeScaleRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const queryBurst = useRef(0);
+
+  useEffect(() => {
+    const trigger = () => {
+      queryBurst.current = 1;
+      pulses.current.forEach((pulse, index) => {
+        pulse.t = index / pulses.current.length;
+        pulse.speed = 0.7;
+      });
+    };
+    window.addEventListener("simulate-query", trigger);
+    return () => window.removeEventListener("simulate-query", trigger);
+  }, []);
 
   useFrame((state, rawDelta) => {
     const delta = Math.min(rawDelta, 1 / 30);
@@ -119,6 +132,7 @@ function TopologyGraph({
     // on the nodes, so fast mouse movement reads as "activity" moving
     // through the system rather than an isolated cursor effect.
     const velocityBoost = 1 + Math.min(velocity.current * 0.35, MAX_VELOCITY_BOOST);
+    queryBurst.current = Math.max(0, queryBurst.current - delta * 0.7);
 
     for (let i = 0; i < pulses.current.length; i++) {
       const pulse = pulses.current[i];
@@ -156,9 +170,9 @@ function TopologyGraph({
           <Line
             key={`${edge.from}-${edge.to}`}
             points={[from.position, to.position]}
-            color="#B7F36B"
+            color="#38BDF8"
             transparent
-            opacity={0.35}
+            opacity={0.28 + queryBurst.current * 0.45}
             lineWidth={1}
           />
         );
@@ -171,7 +185,7 @@ function TopologyGraph({
             <meshStandardMaterial
               color={node.color}
               emissive={node.color}
-              emissiveIntensity={0.35}
+              emissiveIntensity={0.35 + queryBurst.current * 1.5}
               roughness={0.4}
               metalness={0.1}
             />
@@ -192,7 +206,7 @@ function TopologyGraph({
       {pulses.current.map((_, i) => (
         <mesh key={i} ref={(el) => { pulseMeshRefs.current[i] = el; }}>
           <sphereGeometry args={[0.045, 10, 10]} />
-          <meshBasicMaterial color="#FF8E70" transparent opacity={0.9} />
+          <meshBasicMaterial color="#F59E0B" transparent opacity={0.95} />
         </mesh>
       ))}
     </group>

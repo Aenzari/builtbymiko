@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/shell/page-header";
 import { PagePanel } from "@/components/shell/page-panel";
 import { ContactFaq } from "@/components/contact/contact-faq";
 import { ContactForm } from "@/components/contact/contact-form";
+import { DirectContact } from "@/components/contact/direct-contact";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -20,7 +21,10 @@ export default function ContactPage() {
       <PagePanel>
         <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-2">
           <ContactFaq />
-          <ContactForm />
+          <div className="space-y-4">
+            <ContactForm />
+            <DirectContact />
+          </div>
         </div>
       </PagePanel>
     </>
